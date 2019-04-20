@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="Build\Build.props" />
 	<PropertyGroup>
 		<MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
 		<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -7,7 +8,6 @@
 	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
 	<PropertyGroup>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<AssemblyName>HansKindberg.VisualStudio.Extensions.TextFormatter</AssemblyName>
 		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
 		<CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
 		<CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
@@ -20,12 +20,11 @@
 		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 		<ProjectGuid>{1E138935-0975-48AD-8697-A3EDF213CA69}</ProjectGuid>
 		<ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-		<RootNamespace>$(AssemblyName)</RootNamespace>
 		<SchemaVersion>2.0</SchemaVersion>
 		<StartAction>Program</StartAction>
 		<StartArguments>/rootsuffix Exp</StartArguments>
 		<StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
-		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+		<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
 		<UseCodebase>true</UseCodebase>
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
@@ -46,11 +45,24 @@
 		<Reference Include="System" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.2">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.SDK" Version="15.9.3" ExcludeAssets="runtime" />
-		<PackageReference Include="Microsoft.VSSDK.BuildTools" Version="16.0.2268" />
 	</ItemGroup>
 	<ItemGroup>
-		<Compile Include="Properties\AssemblyInfo.cs" />
+		<None Include="Build\Build.props" />
+		<None Include="Build\Build.targets" />
+		<CodeAnalysisDictionary Include="$(SolutionDir).Global\CodeAnalysis\Solution-dictionary.xml">
+			<Link>CodeAnalysis\Solution-dictionary.xml</Link>
+		</CodeAnalysisDictionary>
+		<Compile Include="$(SolutionDir).Global\CodeAnalysis\Solution-suppressions.cs">
+			<Link>CodeAnalysis\Solution-suppressions.cs</Link>
+		</Compile>
+		<CodeAnalysisDictionary Include="CodeAnalysis\Dictionary.xml" />
+		<None Include="CodeAnalysis\Rules.ruleset" />
+		<Compile Include="CodeAnalysis\Suppressions.cs" />
+		<Compile Include="Properties\Assembly-information.cs" />
 		<Compile Include="Package.cs" />
 		<Compile Include="Settings.cs">
 			<SubType>Component</SubType>
@@ -69,4 +81,5 @@
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 	<Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+	<Import Project="Build\Build.targets" />
 </Project>

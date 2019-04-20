@@ -1,6 +1,9 @@
-﻿namespace HansKindberg.VisualStudio.Extensions.TextFormatter
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace HansKindberg.VisualStudio.Extensions.TextFormatter
 {
-	public class Global
+	[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords")]
+	public static class Global
 	{
 		#region Fields
 

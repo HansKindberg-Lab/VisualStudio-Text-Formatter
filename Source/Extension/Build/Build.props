@@ -1,0 +1,10 @@
+<Project>
+	<PropertyGroup>
+		<AssemblyName>HansKindberg.VisualStudio.Extensions.TextFormatter</AssemblyName>
+		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.snk</AssemblyOriginatorKeyFile>
+		<CodeAnalysisRuleSet>CodeAnalysis\Rules.ruleset</CodeAnalysisRuleSet>
+		<DelaySign>false</DelaySign>
+		<RootNamespace>$(AssemblyName)</RootNamespace>
+		<SignAssembly>true</SignAssembly>
+	</PropertyGroup>
+</Project>

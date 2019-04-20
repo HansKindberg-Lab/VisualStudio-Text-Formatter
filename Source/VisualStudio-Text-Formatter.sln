@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extension", "Extension\Extension.csproj", "{1E138935-0975-48AD-8697-A3EDF213CA69}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{C19A5F64-2683-4630-80F6-71CCB8F220CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{C1B0C778-8CF0-448F-B2BB-451144CE403E}"
+	ProjectSection(SolutionItems) = preProject
+		.Global\CodeAnalysis\All-Rules-As-Error.ruleset = .Global\CodeAnalysis\All-Rules-As-Error.ruleset
+		.Global\CodeAnalysis\Solution-dictionary.xml = .Global\CodeAnalysis\Solution-dictionary.xml
+		.Global\CodeAnalysis\Solution-suppressions.cs = .Global\CodeAnalysis\Solution-suppressions.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{2EF3D990-9AB8-4F21-9C07-140504607DB0}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,6 +26,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{D0
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{47176D25-F5F3-44D8-A917-E38D93DA1182}"
+	ProjectSection(SolutionItems) = preProject
+		.Global\Signing\ReadMe.md = .Global\Signing\ReadMe.md
+		.Global\Signing\StrongName.Development.snk = .Global\Signing\StrongName.Development.snk
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extension", "Extension\Extension.csproj", "{1E138935-0975-48AD-8697-A3EDF213CA69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +53,8 @@ Global
 		{2EF3D990-9AB8-4F21-9C07-140504607DB0} = {C19A5F64-2683-4630-80F6-71CCB8F220CB}
 		{92609ADA-E5F3-48F2-B654-75363E523BAC} = {C19A5F64-2683-4630-80F6-71CCB8F220CB}
 		{D0B29D29-F6B6-42E3-8CE5-917508465694} = {C19A5F64-2683-4630-80F6-71CCB8F220CB}
+		{C1B0C778-8CF0-448F-B2BB-451144CE403E} = {C19A5F64-2683-4630-80F6-71CCB8F220CB}
+		{47176D25-F5F3-44D8-A917-E38D93DA1182} = {C19A5F64-2683-4630-80F6-71CCB8F220CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {753FDF8A-1FCB-4D7B-9712-D1C1DFC3B20F}

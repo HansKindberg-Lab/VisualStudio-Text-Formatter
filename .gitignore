@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Custom
+Source/.Global/Signing/*
+
+!Source/.Global/Signing/ReadMe.md
+!Source/.Global/Signing/StrongName.Development.snk
