@@ -1,16 +1,19 @@
 ﻿using System;
-//using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 using System.Threading;
+using HansKindberg.VisualStudio.Extensions.TextFormatter.Resources;
 using Microsoft.VisualStudio.Shell;
 using Task = System.Threading.Tasks.Task;
 
 namespace HansKindberg.VisualStudio.Extensions.TextFormatter
 {
+	[Guid(PackageGuids.PackageGuidString)]
+	[InstalledProductRegistration(Texts.PackageResourceHash, Texts.PackageDescriptionResourceHash, Vsix.Version, IconResourceID = Icons.PackageIconResourceId)]
 	[PackageRegistration(AllowsBackgroundLoading = true, UseManagedResourcesOnly = true)]
-	//[ProvideMenuResource("Menus.ctmenu", 1)]
-	[ProvideOptionPage(typeof(Settings), Global.PackageName, Global.Settings, Global.PackageNameResourceId, Global.SettingsResourceId, true)]
-	[ProvideProfile(typeof(Settings), Global.PackageName, Global.Settings, Global.PackageNameResourceId, Global.PackageNameResourceId, false, DescriptionResourceID = Global.SettingsDescriptionResourceId)]
+	[ProvideMenuResource("Menus.ctmenu", 1)]
+	[ProvideOptionPage(typeof(Settings), Vsix.Name, Texts.Settings, Texts.PackageResourceId, Texts.SettingsResourceId, true)]
+	[ProvideProfile(typeof(Settings), Vsix.Name, Texts.Settings, Texts.PackageResourceId, Texts.PackageResourceId, false, DescriptionResourceID = Texts.SettingsDescriptionResourceId)]
 	public sealed class Package : AsyncPackage
 	{
 		#region Methods

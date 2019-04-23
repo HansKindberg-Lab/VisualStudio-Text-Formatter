@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<Extern href="stdidcmd.h"/>
+	<Extern href="vsshlids.h"/>
+	<Commands package="PackageGuid">
+		<Bitmaps>
+			<Bitmap guid="ImageGuid" href="Resources\Command.png" />
+		</Bitmaps>
+		<Buttons>
+			<Button guid="CommandSetGuid" id="CommandId" priority="100" type="Button">
+				<Parent guid="CommandSetGuid" id="GroupId" />
+				<Icon guid="ImageGuid" id="1" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Format</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>
+		<Groups>
+			<Group guid="CommandSetGuid" id="GroupId" priority="9000">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
+			</Group>
+		</Groups>
+	</Commands>
+	<Symbols>
+		<GuidSymbol name="PackageGuid" value="{9fcb72ab-03fa-418e-bbfc-61021c68288c}" />
+		<GuidSymbol name="CommandSetGuid" value="{d743086e-39e2-43be-9fce-80f59e3854d2}">
+			<IDSymbol name="GroupId" value="1" />
+			<IDSymbol name="CommandId" value="2" />
+		</GuidSymbol>
+		<GuidSymbol name="ImageGuid" value="{0bffb789-0c25-4702-8e8c-b3f9ce2d1d81}" />
+	</Symbols>
+</CommandTable>
