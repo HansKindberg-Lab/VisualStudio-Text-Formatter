@@ -1193,8 +1193,10 @@
 	</Rules>
 	<Rules AnalyzerId="Microsoft.VisualStudio.SDK.Analyzers" RuleNamespace="Microsoft.VisualStudio.SDK.Analyzers">
 		<Rule Id="VSSDK001" Action="Error" />
+		<Rule Id="VSSDK002" Action="Error" />
 		<Rule Id="VSSDK003" Action="Error" />
 		<Rule Id="VSSDK004" Action="Error" />
+		<Rule Id="VSSDK005" Action="Error" />
 		<Rule Id="VSSDK006" Action="Error" />
 	</Rules>
 	<Rules AnalyzerId="Microsoft.VisualStudio.Threading.Analyzers" RuleNamespace="Microsoft.VisualStudio.Threading.Analyzers">

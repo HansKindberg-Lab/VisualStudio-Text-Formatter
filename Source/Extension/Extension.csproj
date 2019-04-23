@@ -55,6 +55,9 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.SDK" Version="15.9.3" ExcludeAssets="runtime" />
+		<PackageReference Include="Microsoft.VisualStudio.SDK.Analyzers" Version="15.8.36">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.VSSDK.BuildTools" Version="16.1.2094" />
 	</ItemGroup>
 	<ItemGroup>
