@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using HansKindberg.VisualStudio.Extensions.TextFormatter;
 
-[assembly: AssemblyCompany("Hans Kindberg - open source")]
+[assembly: AssemblyCompany(Vsix.Author)]
 [assembly: AssemblyConfiguration(
 #if DEBUG
 	"Debug"
@@ -9,9 +11,10 @@ using System.Reflection;
 	"Release"
 #endif
 )]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: AssemblyInformationalVersion("1.0.0-alpha")]
-[assembly: AssemblyProduct("Hans Kindberg - Text formatter")]
-[assembly: AssemblyTitle("Hans Kindberg - Text formatter")]
-[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyDescription(Vsix.Description)]
+[assembly: AssemblyFileVersion(Vsix.Version)]
+[assembly: AssemblyProduct(Vsix.Name)]
+[assembly: AssemblyTitle(Vsix.Name)]
+[assembly: AssemblyVersion(Vsix.Version)]
 [assembly: CLSCompliant(false)]
+[assembly: ComVisible(false)]
