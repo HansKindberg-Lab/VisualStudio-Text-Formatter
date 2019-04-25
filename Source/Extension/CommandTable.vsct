@@ -3,31 +3,117 @@
 	<Extern href="stdidcmd.h"/>
 	<Extern href="vsshlids.h"/>
 	<Commands package="PackageGuid">
-		<Bitmaps>
-			<Bitmap guid="ImageGuid" href="Resources\Command.png" />
-		</Bitmaps>
 		<Buttons>
-			<Button guid="CommandSetGuid" id="CommandId" priority="100" type="Button">
-				<Parent guid="CommandSetGuid" id="GroupId" />
-				<Icon guid="ImageGuid" id="1" />
-				<CommandFlag>DynamicVisibility</CommandFlag>
+			<Button guid="CommandGuid" id="DefaultButtonId" priority="1" type="Button">
+				<Parent guid="CommandGuid" id="DefaultGroupId" />
+				<!--<CommandFlag>DynamicVisibility</CommandFlag>-->
 				<Strings>
-					<ButtonText>Format</ButtonText>
+					<ButtonText>Default</ButtonText>
+					<!--<CommandName>Default</CommandName>-->
+				</Strings>
+			</Button>
+			<Button guid="CommandGuid" id="ItemsButtonId" priority="1" type="Button">
+				<Parent guid="CommandGuid" id="ItemsGroupId" />
+				<!--<CommandFlag>DynamicItemStart</CommandFlag>-->
+				<Strings>
+					<ButtonText>Items</ButtonText>
 				</Strings>
 			</Button>
 		</Buttons>
 		<Groups>
-			<Group guid="CommandSetGuid" id="GroupId" priority="9000">
-				<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
+			<Group guid="CommandGuid" id="DefaultGroupId" />
+			<Group guid="CommandGuid" id="GroupId" />
+			<Group guid="CommandGuid" id="ItemsGroupId" />
+			<Group guid="CommandGuid" id="MenuGroupId" priority="1">
+				<Parent guid="CommandGuid" id="MenuId" />
 			</Group>
 		</Groups>
+		<Menus>
+			<Menu guid="CommandGuid" id="JsonMenuId" priority="1" type="Menu">
+				<Parent guid="CommandGuid" id="MenuGroupId" />
+				<Strings>
+					<ButtonText>JSON</ButtonText>
+				</Strings>
+			</Menu>
+			<Menu guid="CommandGuid" id="MenuId" priority="1" type="Menu">
+				<Parent guid="CommandGuid" id="GroupId" />
+				<Strings>
+					<ButtonText>Format</ButtonText>
+				</Strings>
+			</Menu>
+			<Menu guid="CommandGuid" id="XmlMenuId" priority="2" type="Menu">
+				<Parent guid="CommandGuid" id="MenuGroupId" />
+				<Strings>
+					<ButtonText>XML</ButtonText>
+				</Strings>
+			</Menu>
+		</Menus>
 	</Commands>
+	<CommandPlacements>
+		<CommandPlacement guid="CommandGuid" id="DefaultGroupId" priority="1">
+			<Parent guid="CommandGuid" id="MenuId" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="DefaultGroupId" priority="1">
+			<Parent guid="CommandGuid" id="JsonMenuId" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="DefaultGroupId" priority="1">
+			<Parent guid="CommandGuid" id="XmlMenuId" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="ItemsGroupId" priority="2">
+			<Parent guid="CommandGuid" id="MenuId" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="ItemsGroupId" priority="2">
+			<Parent guid="CommandGuid" id="JsonMenuId" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="ItemsGroupId" priority="2">
+			<Parent guid="CommandGuid" id="XmlMenuId" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_FOLDERNODE" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_PROJNODE" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNFOLDER" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNNODE" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_XPROJ_MULTIFOLDER" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_XPROJ_MULTIITEM" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_XPROJ_MULTIPROJ" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_XPROJ_MULTIPROJFLDR" />
+		</CommandPlacement>
+		<CommandPlacement guid="CommandGuid" id="GroupId" priority="9000">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_XPROJ_PROJITEM" />
+		</CommandPlacement>
+	</CommandPlacements>
 	<Symbols>
-		<GuidSymbol name="PackageGuid" value="{9fcb72ab-03fa-418e-bbfc-61021c68288c}" />
-		<GuidSymbol name="CommandSetGuid" value="{d743086e-39e2-43be-9fce-80f59e3854d2}">
-			<IDSymbol name="GroupId" value="1" />
-			<IDSymbol name="CommandId" value="2" />
+		<GuidSymbol name="CommandGuid" value="{d743086e-39e2-43be-9fce-80f59e3854d2}">
+			<IDSymbol name="DefaultButtonId" value="1" />
+			<IDSymbol name="DefaultGroupId" value="2" />
+			<IDSymbol name="GroupId" value="3" />
+			<IDSymbol name="ItemsButtonId" value="4" />
+			<IDSymbol name="ItemsGroupId" value="5" />
+			<IDSymbol name="JsonMenuId" value="6" />
+			<IDSymbol name="MenuGroupId" value="7" />
+			<IDSymbol name="MenuId" value="8" />
+			<IDSymbol name="XmlMenuId" value="9" />
 		</GuidSymbol>
-		<GuidSymbol name="ImageGuid" value="{0bffb789-0c25-4702-8e8c-b3f9ce2d1d81}" />
+		<GuidSymbol name="PackageGuid" value="{9fcb72ab-03fa-418e-bbfc-61021c68288c}" />
 	</Symbols>
 </CommandTable>

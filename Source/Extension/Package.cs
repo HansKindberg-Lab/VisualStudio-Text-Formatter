@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
 using HansKindberg.VisualStudio.Extensions.TextFormatter.Resources;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.Shell;
 using Task = System.Threading.Tasks.Task;
 
@@ -16,24 +16,53 @@ namespace HansKindberg.VisualStudio.Extensions.TextFormatter
 	[ProvideProfile(typeof(Settings), Vsix.Name, Texts.Settings, Texts.PackageResourceId, Texts.PackageResourceId, false, DescriptionResourceID = Texts.SettingsDescriptionResourceId)]
 	public sealed class Package : AsyncPackage
 	{
+		#region Constructors
+
+		public Package() : this(ConfigureServices(new ServiceCollection()).BuildServiceProvider())
+		{
+			this.AddService(typeof(string), (container, token, type) => Task.FromResult((object) "Kalle"));
+		}
+
+		public Package(IServiceProvider serviceProvider)
+		{
+			this.InternalServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+		}
+
+		#endregion
+
+		#region Properties
+
+		internal IServiceProvider InternalServiceProvider { get; }
+
+		#endregion
+
 		#region Methods
 
-		[SuppressMessage("Reliability", "VSSDK006:Check services exist")]
+		private static IServiceCollection ConfigureServices(IServiceCollection services)
+		{
+			if(services == null)
+				throw new ArgumentNullException(nameof(services));
+
+			return services;
+		}
+
+		protected override object GetService(Type serviceType)
+		{
+			return this.InternalServiceProvider.GetService(serviceType) ?? base.GetService(serviceType);
+		}
+
+		//[SuppressMessage("Reliability", "VSSDK006:Check services exist")]
 		protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
 		{
 			await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
 
-			//var menuCommandService = await this.GetServiceAsync(typeof(IMenuCommandService)).ConfigureAwait(false) as IMenuCommandService;//.ConfigureAwait(false);
+			var a = this.GetRequiredService<string>();
 
-			//if(menuCommandService == null)
-			//	throw new InvalidOperationException();
+			if(a == null)
+				throw new InvalidOperationException();
 
-			//menuCommandService.AddCommand(new MenuCommand((sender, args) =>
-			//{
-
-			//}, new CommandID() ));
-			////OleMenuCommandService commandService = await this.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
-			//////			Instance = new FormatCommand(package, commandService);
+			//VSConstants.UICONTEXT
+			//VsMenus.guidSHLMainMenu
 		}
 
 		#endregion

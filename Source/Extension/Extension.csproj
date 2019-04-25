@@ -42,18 +42,14 @@
 		<OutputPath>bin\Release\</OutputPath>
 	</PropertyGroup>
 	<ItemGroup>
-		<Reference Include="Microsoft.CSharp" />
 		<Reference Include="System" />
-		<Reference Include="System.Data" />
-		<Reference Include="System.Design" />
-		<Reference Include="System.Drawing" />
-		<Reference Include="System.Windows.Forms" />
-		<Reference Include="System.Xml" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.2">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.VisualStudio.SDK" Version="15.9.3" ExcludeAssets="runtime" />
 		<PackageReference Include="Microsoft.VisualStudio.SDK.Analyzers" Version="15.8.36">
 			<PrivateAssets>all</PrivateAssets>
@@ -74,9 +70,6 @@
 		<Compile Include="CodeAnalysis\Suppressions.cs" />
 		<Compile Include="Commands\FormatCommand.cs" />
 		<Compile Include="Properties\Assembly-information.cs" />
-		<Content Include="Resources\Command.png">
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
 		<EmbeddedResource Include="Resources\Icons.resx">
 			<SubType>Designer</SubType>
 		</EmbeddedResource>

@@ -15,11 +15,9 @@ namespace HansKindberg.VisualStudio.Extensions.TextFormatter
 	{
 		#region Fields
 
+		public static Guid CommandGuid = new Guid(CommandGuidString);
+		public const string CommandGuidString = "d743086e-39e2-43be-9fce-80f59e3854d2";
 		public static Guid PackageGuid = new Guid(PackageGuidString);
-		public static Guid CommandSetGuid = new Guid(CommandSetGuidString);
-		public const string CommandSetGuidString = "d743086e-39e2-43be-9fce-80f59e3854d2";
-		public static Guid ImageGuid = new Guid(ImageGuidString);
-		public const string ImageGuidString = "0bffb789-0c25-4702-8e8c-b3f9ce2d1d81";
 		public const string PackageGuidString = "9fcb72ab-03fa-418e-bbfc-61021c68288c";
 
 		#endregion
@@ -32,8 +30,15 @@ namespace HansKindberg.VisualStudio.Extensions.TextFormatter
 	{
 		#region Fields
 
-		public const int CommandId = 0x0002;
-		public const int GroupId = 0x0001;
+		public const int DefaultButtonId = 0x0001;
+		public const int DefaultGroupId = 0x0002;
+		public const int GroupId = 0x0003;
+		public const int ItemsButtonId = 0x0004;
+		public const int ItemsGroupId = 0x0005;
+		public const int JsonMenuId = 0x0006;
+		public const int MenuGroupId = 0x0007;
+		public const int MenuId = 0x0008;
+		public const int XmlMenuId = 0x0009;
 
 		#endregion
 	}
